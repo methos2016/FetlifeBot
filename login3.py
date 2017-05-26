@@ -22,6 +22,10 @@ class MySpider(scrapy.Spider):
             callback=self.after_login)
 
     def after_login(self, response):
+        if "authentication failed" in response.body:
+            self.logger.error("Login failed")
+
+        scrapy.Request(url=BASE_URL+PAGES)
         set_selector = 'span-6'
         for fet in response.css(set_selector):
 
