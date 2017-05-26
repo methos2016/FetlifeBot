@@ -8,10 +8,6 @@ class MySpider(scrapy.Spider):
     start_urls = ['https://www.fetlife.com/users/1',
                   'https://www.fetlife.com/users/2']
 
-    rules = (
-        Rule(SgmlLinkExtractor(allow=r'-\w+.html$'),
-             callback='parse_item', follow=True),
-    )
 
     def init_request(self):
         """This function is called before crawling starts."""
