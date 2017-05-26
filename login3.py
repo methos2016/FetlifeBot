@@ -21,9 +21,9 @@ class MySpider(scrapy.Spider):
             },
             callback=self.after_login)
 
-                set_selector = 'span-6'
-                for fet in response.css(set_selector):
-                    name_selector = 'h2 a ::text'
-                    yield {
-                        'name': fet.css(name_selector).extract_first(),
-                    }
+    def after_login(self, response):
+        set_selector = 'span-6'
+        for fet in response.css(set_selector):
+
+            user_selector = 'h2 a ::text'
+            yield dict(name=fet.css(user_selector).extract_first())
