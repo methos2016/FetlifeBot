@@ -3,7 +3,7 @@ import scrapy
 
 class MySpider(scrapy.Spider):
     name = 'fetlifespider'
-    allowed_domains = ['domain.com']
+    allowed_domains = ['www.fetlife.com']
     login_page = 'https://www.fetlife.com/users/sign_in'
     start_urls = ['https://www.fetlife.com/users/1',
                   'https://www.fetlife.com/users/2']
