@@ -8,8 +8,6 @@ PAGES = ['1', '/users/2', '/users/3']
 
 
 class MySpider(scrapy.Spider):
-
-
     name = 'fet_spider'
     start_urls = [BASE_URL + '/users/sign_in']
 
@@ -23,10 +21,9 @@ class MySpider(scrapy.Spider):
             },
             callback=self.after_login)
 
-def parse(self, response):
-    SET_SELECTOR = '.div'
-    for fet in response.css(SET_SELECTOR):
-        NAME_SELECTOR = 'h2 a ::text'
-        yield {
-            'name': fet.css(NAME_SELECTOR).extract_first(),
-        }
+                set_selector = 'span-6'
+                for fet in response.css(set_selector):
+                    name_selector = 'h2 a ::text'
+                    yield {
+                        'name': fet.css(name_selector).extract_first(),
+                    }
