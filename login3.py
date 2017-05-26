@@ -42,6 +42,8 @@ class MySpider(scrapy.Spider):
     login_page = 'https://www.fetlife.com/users/sign_in'
     start_urls = ['https://www.fetlife.com/users/1',
                   'https://www.fetlife.com/users/2']
+    USER_NAME = 'fetlife.aws@gmail.com'
+    PASSWORD = 'uCrtt5omeTEW'
 
 
     def init_request(self):
