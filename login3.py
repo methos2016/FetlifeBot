@@ -34,9 +34,10 @@
 
 
 import scrapy
+import time
 
 class MySpider(scrapy.Spider):
-    name = 'fetlifespider'
+    name = 'fetlifespider3'
     allowed_domains = ['www.fetlife.com']
     login_page = 'https://www.fetlife.com/users/sign_in'
     start_urls = ['https://www.fetlife.com/users/1',
@@ -56,6 +57,8 @@ class MySpider(scrapy.Spider):
                 'user_password': PASSWORD,
             },
             callback=self.after_login)
+
+    time.sleep(2)
 
     def check_login_response(self, response):
         """Check the response returned by a login request to see if we are

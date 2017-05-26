@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import time
 
 class MySpider(scrapy.Spider):
-    name = 'fetlifespider'
+    name = 'fetlifespider4'
     allowed_domains = ['www.fetlife.com']
     login_page = 'https://www.fetlife.com/users/sign_in'
     start_urls = ['https://www.fetlife.com/users/1',
@@ -18,6 +19,8 @@ class MySpider(scrapy.Spider):
         return FormRequest.from_response(response,
                     formdata={'user_login': 'fetlife.aws@gmail.com', 'user_password': 'uCrtt5omeTEW'},
                     callback=self.check_login_response)
+
+    time.sleep(2)
 
     def check_login_response(self, response):
         """Check the response returned by a login request to see if we are
