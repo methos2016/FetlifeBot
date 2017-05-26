@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-class MySpider(InitSpider):
-    name = 'myspider'
+class MySpider(scrapy.Spider):
+    name = 'fetlifespider'
     allowed_domains = ['domain.com']
     login_page = 'https://www.fetlife.com/users/sign_in'
     start_urls = ['https://www.fetlife.com/users/1',
