@@ -42,7 +42,7 @@ def scraper (sessionToken):
             PageToParse = response.read()
             text = PageToParse.decode('utf-8')
             # Use regular expressions to find the data we want, which looks like: <a class="fl-member-card__user" href="/users/6762775">pinkrose84</a>
-            user = findall("<a class=\"fl-member-card__user\" href=\"\/users\/[0-9]{1,7}\">[A-Za-z0-9-]{1,20}<\/a>", text)
+            user = findall("<a href=\"https://fetlife.com/users/[a-zA-Z0-9]*.*\"", text)
 	    print user
             # Fill in the parser and JSON converstion stuff here once Amanda sends me schema
 
